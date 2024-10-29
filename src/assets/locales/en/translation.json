@@ -1,0 +1,12 @@
+{
+  "home": {
+    "LABEL_WhatDoYouWantToDO": "What do you want to do?",
+    "BUTTON_Search": "Search"
+  },
+  "results": {
+    "RESULTS_Found": "{{count}} Shipments found"
+  },
+  "details": {
+    "LABEL_ShipmentDetails": "Shipment Details for {{shipmentNo}}"
+  }
+}
