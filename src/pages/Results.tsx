@@ -5,7 +5,7 @@ import shipmentsData from "../assets/shipments.json";
 import ShipmentCard from "../components/ShipmentCard";
 import { Shipment } from "../shared/types";
 import { useTranslation } from "react-i18next";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { InputState } from "./Home";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import KeyboardArrowLeftOutlinedIcon from "@mui/icons-material/KeyboardArrowLeftOutlined";
@@ -85,6 +85,7 @@ const Results = () => {
   const filterValues: InputState = location.state;
 
   const [isOpen, setIsOpen] = useState(false);
+  const [isFilterApplied, setIsFilterApplied] = useState(false);
   const [cardSelected, setCardSelected] = useState("");
 
   // Infinite Scroll State
@@ -108,15 +109,15 @@ const Results = () => {
 
   const [realData, setRealData] = useState(shipmentsData?.Shipments?.Shipment);
 
-  const isFilterApplied = useMemo(() => {
-    const result = Object.keys(refineValues).some((key: string) => {
-      if (refineValues[key as keyof RefineValues]) {
-        return true;
-      }
-    });
+//   const isFilterApplied = useMemo(() => {
+//     const result = Object.keys(refineValues).some((key: string) => {
+//       if (refineValues[key as keyof RefineValues]) {
+//         return true;
+//       }
+//     });
 
-    return result;
-  }, [refineValues]);
+//     return result;
+//   }, [refineValues]);
 
   console.log(isFilterApplied);
 
@@ -198,6 +199,8 @@ const Results = () => {
       cancelled: false,
     });
 
+    setIsFilterApplied(false)
+
     setShipments(realData);
   };
 
@@ -218,6 +221,10 @@ const Results = () => {
     const refinedShipments = realData?.filter((shipment: Shipment) =>
       filterValueArray.includes(shipment.Status)
     );
+
+    if(filterValueArray?.length) {
+        setIsFilterApplied(true);
+    }
 
     setShipments(refinedShipments);
   };
