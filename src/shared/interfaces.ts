@@ -4,7 +4,7 @@ export interface RefineValues {
   readyForCustomerPickup: boolean;
   readyForPacking: boolean;
   packed: boolean;
-  shippedPacked: boolean;
+  shippedPicked: boolean;
   cancelled: boolean;
 }
 
@@ -14,6 +14,7 @@ export interface RefineMapper {
   readyForCustomerPickup: string;
   readyForPacking: string;
   packed: string;
-  shippedPacked: string;
+  shipped: string;
+  picked: string;
   cancelled: string;
 }

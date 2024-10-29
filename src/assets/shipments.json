@@ -74,7 +74,7 @@
         "ShipNode": "Mtrx_Store_4",
         "ShipmentKey": "SFS1000001_SHPKEY",
         "ShipmentNo": "SFS1000001SHPNO",
-        "Status": "Ready for Packing",
+        "Status": "Ready For Packing",
         "BillToAddress": {
           "DayPhone": "1234567893",
           "EMailID": "john@example.com",
@@ -347,7 +347,7 @@
         "ShipNode": "Mtrx_Store_17",
         "ShipmentKey": "SFS1000008_SHPKEY",
         "ShipmentNo": "SFS1000008SHPNO",
-        "Status": "Ready for Packing",
+        "Status": "Ready For Packing",
         "BillToAddress": {
           "DayPhone": "1234567806",
           "EMailID": "david@example.com",
@@ -431,7 +431,7 @@
         "ShipNode": "Mtrx_Store_21",
         "ShipmentKey": "SFS1000011_SHPKEY",
         "ShipmentNo": "SFS1000011SHPNO",
-        "Status": "Ready for Packing",
+        "Status": "Ready For Packing",
         "BillToAddress": {
           "DayPhone": "1234567810",
           "EMailID": "sam@example.com",
@@ -515,7 +515,7 @@
         "ShipNode": "Mtrx_Store_25",
         "ShipmentKey": "SFS1000014_SHPKEY",
         "ShipmentNo": "SFS1000014SHPNO",
-        "Status": "Ready for Packing",
+        "Status": "Ready For Packing",
         "BillToAddress": {
           "DayPhone": "1234567814",
           "EMailID": "john@example.com",
@@ -599,7 +599,7 @@
         "ShipNode": "Mtrx_Store_29",
         "ShipmentKey": "SFS1000017_SHPKEY",
         "ShipmentNo": "SFS1000017SHPNO",
-        "Status": "Ready for Packing",
+        "Status": "Ready For Packing",
         "BillToAddress": {
           "DayPhone": "1234567818",
           "EMailID": "laura@example.com",

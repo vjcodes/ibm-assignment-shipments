@@ -9,12 +9,12 @@ export const filterCheckboxes = [
   },
   {
     id: "backroomPickInProgress",
-    label: "Backroom Pick in Progress",
+    label: "Backroom Pick In Progress",
     type: "checkbox",
   },
   {
     id: "readyForCustomerPickup",
-    label: "Ready For Customer Pickup",
+    label: "Ready for Customer Pickup",
     type: "checkbox",
   },
   {
@@ -28,7 +28,7 @@ export const filterCheckboxes = [
     type: "checkbox",
   },
   {
-    id: "shippedPacked",
+    id: "shippedPicked",
     label: "Shipped/Picked",
     type: "checkbox",
   },
@@ -41,11 +41,12 @@ export const filterCheckboxes = [
 
 export const refineMapper: RefineMapper = {
   readyForBackroomPick: "Ready for Backroom Pick",
-  backroomPickInProgress: "Backroom Pick in Progress",
-  readyForCustomerPickup: "Ready For Customer Pickup",
+  backroomPickInProgress: "Backroom Pick In Progress",
+  readyForCustomerPickup: "Ready for Customer Pickup",
   readyForPacking: "Ready For Packing",
   packed: "Packed",
-  shippedPacked: "Shipped/Picked",
+  shipped: "Shipped",
+  picked: "Picked",
   cancelled: "Cancelled",
 };
 

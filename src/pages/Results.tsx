@@ -5,7 +5,7 @@ import shipmentsData from "../assets/shipments.json";
 import ShipmentCard from "../components/ShipmentCard";
 import { InputState, Shipment } from "../shared/types";
 import { useTranslation } from "react-i18next";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import KeyboardArrowLeftOutlinedIcon from "@mui/icons-material/KeyboardArrowLeftOutlined";
 import { filterCheckboxes, refineMapper } from "../utils/constants";
@@ -22,8 +22,8 @@ const Results = () => {
   const [cardSelected, setCardSelected] = useState("");
 
   // Infinite Scroll State
-  //   const [currentPage, setCurrentPage] = useState(1);
-  //   const itemsPerPage = 10;
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
   const observerRef = useRef<HTMLDivElement>(null);
 
   const [refineValues, setRefineValues] = useState<RefineValues>({
@@ -32,26 +32,24 @@ const Results = () => {
     readyForCustomerPickup: false,
     readyForPacking: false,
     packed: false,
-    shippedPacked: false,
+    shippedPicked: false,
     cancelled: false,
   });
 
-  const [shipments, setShipments] = useState(
-    shipmentsData?.Shipments?.Shipment
-  );
-
+  const [shipments, setShipments] = useState(shipmentsData?.Shipments?.Shipment);
   const [realData, setRealData] = useState(shipmentsData?.Shipments?.Shipment);
 
   const isBlank = (value: string) => {
-    if (value.trim() === "") {
-      return true;
-    }
-
-    return false;
+    return value.trim() === "";
   };
+
+  const paginatedShipments = useMemo(() => {
+    return shipments.slice(0, currentPage * itemsPerPage);
+  }, [shipments, currentPage]);
 
   const searchCheck = (shipment: Shipment) => {
     let ans = false;
+
     if (filterValues?.orderNumber === shipment?.OrderNo?.toLowerCase()) {
       ans = true;
     }
@@ -70,7 +68,8 @@ const Results = () => {
       ans = true;
     }
     if (
-      filterValues?.lastName === shipment?.BillToAddress?.LastName.toLowerCase()
+      filterValues?.lastName ===
+      shipment?.BillToAddress?.LastName.toLowerCase()
     ) {
       ans = true;
     }
@@ -88,11 +87,7 @@ const Results = () => {
       }
     });
 
-    if (isAllBlank) {
-      return true;
-    }
-
-    return ans;
+    return isAllBlank || ans;
   };
 
   useEffect(() => {
@@ -105,6 +100,24 @@ const Results = () => {
     }
   }, [filterValues]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && paginatedShipments.length < realData.length) {
+        setCurrentPage((prevPage) => prevPage + 1);
+      }
+    });
+
+    if (observerRef.current) {
+      observer.observe(observerRef.current);
+    }
+
+    return () => {
+      if (observerRef.current) {
+        observer.unobserve(observerRef.current);
+      }
+    };
+  }, [observerRef, paginatedShipments.length, realData.length]);
+
   const togglePopover = () => {
     setIsOpen(!isOpen);
   };
@@ -116,17 +129,21 @@ const Results = () => {
       readyForCustomerPickup: false,
       readyForPacking: false,
       packed: false,
-      shippedPacked: false,
+      shippedPicked: false,
       cancelled: false,
     });
 
     setIsFilterApplied(false);
-
     setShipments(realData);
+    setCurrentPage(1);
   };
 
   const handleApplyFilters = () => {
     const filterValueArray: string[] = [];
+    if (refineValues.shippedPicked) {
+        filterValueArray.push(refineMapper.picked);
+        filterValueArray.push(refineMapper.shipped);
+    }
     Object.keys(refineValues).forEach((key: string) => {
       if (refineValues[key as keyof RefineValues]) {
         filterValueArray.push(refineMapper[key as keyof RefineMapper]);
@@ -138,23 +155,19 @@ const Results = () => {
       return;
     }
 
-    const refinedShipments = realData?.filter((shipment: Shipment) =>
+    const refinedShipments = realData.filter((shipment: Shipment) =>
       filterValueArray.includes(shipment.Status)
     );
 
-    if (filterValueArray?.length) {
-      setIsFilterApplied(true);
-    } else {
-      setIsFilterApplied(false);
-    }
-
+    setIsFilterApplied(refinedShipments.length > 0);
     setShipments(refinedShipments);
+    setCurrentPage(1);
   };
 
   return (
     <div>
       <div className="bg-white m-2 border border-[#1d1d22]">
-        <div className="flex justify-between items-center  p-2 border-b mb-2">
+        <div className="flex justify-between items-center p-2 border-b mb-2">
           <div className="flex">
             <button
               className="mr-2 text-[#3d8ca5] font-bold"
@@ -179,7 +192,7 @@ const Results = () => {
         </div>
 
         <div className="flex justify-between p-2 mb-2">
-          <div>{t("results.RESULTS_Found", { count: shipments.length })}</div>
+          <div>{t("results.RESULTS_Found", { count: paginatedShipments.length })}</div>
           <div className="relative">
             {isOpen && (
               <div className="absolute right-[90%] z-10 mt-2 w-[20rem] rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
@@ -195,24 +208,20 @@ const Results = () => {
                   <div className="bg-[#E8E8E8] p-2">
                     <h1>Status</h1>
 
-                    {filterCheckboxes?.map((checkbox) => (
-                      <div key={checkbox?.id} className="flex items-center">
+                    {filterCheckboxes.map((checkbox) => (
+                      <div key={checkbox.id} className="flex items-center">
                         <input
-                          key={checkbox?.id}
                           type="checkbox"
-                          checked={
-                            refineValues[checkbox.id as keyof RefineValues]
-                          }
+                          checked={refineValues[checkbox.id as keyof RefineValues]}
                           onChange={() =>
                             setRefineValues((prev) => ({
                               ...prev,
-                              [checkbox?.id]:
-                                !prev[checkbox?.id as keyof RefineValues],
+                              [checkbox.id]: !prev[checkbox.id as keyof RefineValues],
                             }))
                           }
                           className="mr-2"
                         />
-                        {checkbox?.label}
+                        {checkbox.label}
                       </div>
                     ))}
                   </div>
@@ -222,13 +231,13 @@ const Results = () => {
                   <div className="w-full flex justify-end mt-4">
                     <button
                       className="border px-6 py-2 border-[#3F78BF] text-[#3F78BF] mr-2 font-semibold"
-                      onClick={() => resetFields()}
+                      onClick={resetFields}
                     >
                       Reset
                     </button>
                     <button
                       className="border px-6 py-2 bg-[#3F78BF] text-white font-semibold"
-                      onClick={() => handleApplyFilters()}
+                      onClick={handleApplyFilters}
                     >
                       Apply
                     </button>
@@ -249,9 +258,9 @@ const Results = () => {
 
         <Divider type="horizontal" />
 
-        {/*Shipment Cards Scrollable List */}
+        {/* Shipment Cards Scrollable List */}
         <div className="overflow-y-auto max-h-[34rem]">
-          {shipments?.map((shipment: Shipment) => (
+          {paginatedShipments.map((shipment: Shipment) => (
             <ShipmentCard
               key={shipment.OrderNo}
               details={shipment}
