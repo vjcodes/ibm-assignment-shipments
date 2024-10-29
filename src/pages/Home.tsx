@@ -1,61 +1,8 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-
-type InputBox = {
-  id: number;
-  label: keyof InputState;
-  type: string;
-  placeholder: string;
-};
-
-const inputBoxes: InputBox[] = [
-  {
-    id: 1,
-    label: "orderNumber",
-    placeholder: "Order #",
-    type: "text",
-  },
-  {
-    id: 2,
-    label: "shipmentNumber",
-    placeholder: "Shipment #",
-    type: "text",
-  },
-  {
-    id: 3,
-    label: "firstName",
-    placeholder: "First Name",
-    type: "text",
-  },
-  {
-    id: 4,
-    label: "lastName",
-    placeholder: "Last Name",
-    type: "text",
-  },
-  {
-    id: 5,
-    label: "emailId",
-    placeholder: "Email ID",
-    type: "text",
-  },
-  {
-    id: 6,
-    label: "phoneNumber",
-    placeholder: "Phone number",
-    type: "text",
-  },
-];
-
-export type InputState = {
-  orderNumber: string;
-  shipmentNumber: string;
-  firstName: string;
-  lastName: string;
-  emailId: string;
-  phoneNumber: string;
-};
+import { InputState } from "../shared/types";
+import { inputBoxes } from "../utils/constants";
 
 const Home = () => {
   const { t } = useTranslation();
@@ -83,7 +30,7 @@ const Home = () => {
 
   const handleSearch = () => {
     const dataToSend = inputs;
-    navigate("/results", {state: dataToSend});
+    navigate("/results", { state: dataToSend });
   };
 
   return (

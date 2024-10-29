@@ -86,3 +86,19 @@ export type ProductType = {
     };
   };
 };
+
+export type InputState = {
+  orderNumber: string;
+  shipmentNumber: string;
+  firstName: string;
+  lastName: string;
+  emailId: string;
+  phoneNumber: string;
+};
+
+export type InputBox = {
+  id: number;
+  label: keyof InputState;
+  type: string;
+  placeholder: string;
+};

@@ -1,4 +1,4 @@
-const Divider = ({ type }: { type: string }) => {
+const Divider = ({ type }: { type: "vertical" | "horizontal" }) => {
   return (
     <div>
       {type === "vertical" && <div className="h-full w-[1px] bg-[#EFF0F2]" />}

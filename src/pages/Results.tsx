@@ -3,80 +3,13 @@ import CustomButton from "../shared/components/CustomButton";
 import Divider from "../shared/components/Divider";
 import shipmentsData from "../assets/shipments.json";
 import ShipmentCard from "../components/ShipmentCard";
-import { Shipment } from "../shared/types";
+import { InputState, Shipment } from "../shared/types";
 import { useTranslation } from "react-i18next";
 import { useEffect, useRef, useState } from "react";
-import { InputState } from "./Home";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import KeyboardArrowLeftOutlinedIcon from "@mui/icons-material/KeyboardArrowLeftOutlined";
-
-const filterCheckboxes = [
-  {
-    id: "readyForBackroomPick",
-    label: "Ready for Backroom Pick",
-    type: "checkbox",
-  },
-  {
-    id: "backroomPickInProgress",
-    label: "Backroom Pick in Progress",
-    type: "checkbox",
-  },
-  {
-    id: "readyForCustomerPickup",
-    label: "Ready For Customer Pickup",
-    type: "checkbox",
-  },
-  {
-    id: "readyForPacking",
-    label: "Ready For Packing",
-    type: "checkbox",
-  },
-  {
-    id: "packed",
-    label: "Packed",
-    type: "checkbox",
-  },
-  {
-    id: "shippedPacked",
-    label: "Shipped/Picked",
-    type: "checkbox",
-  },
-  {
-    id: "cancelled",
-    label: "Cancelled",
-    type: "checkbox",
-  },
-];
-
-interface RefineValues {
-  readyForBackroomPick: boolean;
-  backroomPickInProgress: boolean;
-  readyForCustomerPickup: boolean;
-  readyForPacking: boolean;
-  packed: boolean;
-  shippedPacked: boolean;
-  cancelled: boolean;
-}
-
-interface RefineMapper {
-  readyForBackroomPick: string;
-  backroomPickInProgress: string;
-  readyForCustomerPickup: string;
-  readyForPacking: string;
-  packed: string;
-  shippedPacked: string;
-  cancelled: string;
-}
-
-const refineMapper: RefineMapper = {
-  readyForBackroomPick: "Ready for Backroom Pick",
-  backroomPickInProgress: "Backroom Pick in Progress",
-  readyForCustomerPickup: "Ready For Customer Pickup",
-  readyForPacking: "Ready For Packing",
-  packed: "Packed",
-  shippedPacked: "Shipped/Picked",
-  cancelled: "Cancelled",
-};
+import { filterCheckboxes, refineMapper } from "../utils/constants";
+import { RefineMapper, RefineValues } from "../shared/interfaces";
 
 const Results = () => {
   const navigate = useNavigate();
@@ -263,7 +196,7 @@ const Results = () => {
                     <h1>Status</h1>
 
                     {filterCheckboxes?.map((checkbox) => (
-                      <div className="flex items-center">
+                      <div key={checkbox?.id} className="flex items-center">
                         <input
                           key={checkbox?.id}
                           type="checkbox"
