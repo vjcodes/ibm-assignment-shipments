@@ -10,7 +10,6 @@ const ShipmentCard = ({
   cardSelected: string;
   setCardSelected: (value: string) => void;
 }) => {
-  console.log(cardSelected);
   const navigate = useNavigate();
   return (
     <div

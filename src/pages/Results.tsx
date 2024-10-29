@@ -89,8 +89,8 @@ const Results = () => {
   const [cardSelected, setCardSelected] = useState("");
 
   // Infinite Scroll State
-//   const [currentPage, setCurrentPage] = useState(1);
-//   const itemsPerPage = 10;
+  //   const [currentPage, setCurrentPage] = useState(1);
+  //   const itemsPerPage = 10;
   const observerRef = useRef<HTMLDivElement>(null);
 
   const [refineValues, setRefineValues] = useState<RefineValues>({
@@ -108,18 +108,6 @@ const Results = () => {
   );
 
   const [realData, setRealData] = useState(shipmentsData?.Shipments?.Shipment);
-
-//   const isFilterApplied = useMemo(() => {
-//     const result = Object.keys(refineValues).some((key: string) => {
-//       if (refineValues[key as keyof RefineValues]) {
-//         return true;
-//       }
-//     });
-
-//     return result;
-//   }, [refineValues]);
-
-  console.log(isFilterApplied);
 
   const isBlank = (value: string) => {
     if (value.trim() === "") {
@@ -199,13 +187,12 @@ const Results = () => {
       cancelled: false,
     });
 
-    setIsFilterApplied(false)
+    setIsFilterApplied(false);
 
     setShipments(realData);
   };
 
   const handleApplyFilters = () => {
-    console.log(refineValues);
     const filterValueArray: string[] = [];
     Object.keys(refineValues).forEach((key: string) => {
       if (refineValues[key as keyof RefineValues]) {
@@ -222,8 +209,10 @@ const Results = () => {
       filterValueArray.includes(shipment.Status)
     );
 
-    if(filterValueArray?.length) {
-        setIsFilterApplied(true);
+    if (filterValueArray?.length) {
+      setIsFilterApplied(true);
+    } else {
+      setIsFilterApplied(false);
     }
 
     setShipments(refinedShipments);
@@ -241,7 +230,9 @@ const Results = () => {
               <KeyboardArrowLeftOutlinedIcon />
             </button>
             <Divider type="vertical" />
-            <h1 className="ml-2 font-semibold text-xl">Shipment Search Results</h1>
+            <h1 className="ml-2 font-semibold text-xl">
+              Shipment Search Results
+            </h1>
           </div>
 
           <div>
