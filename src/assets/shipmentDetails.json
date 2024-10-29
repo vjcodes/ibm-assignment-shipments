@@ -46,7 +46,7 @@
             "ItemDetails": {
               "DisplayUnitOfMeasure": "Each",
               "Description": "Frigidaire Window Air Conditioner 1200-BTU",
-              "ImageUrl": "<PATH_TO_IMAGE>",
+              "ImageUrl": "../assets/productImage.png",
               "ItemID": "100001"
             }
           }
@@ -58,7 +58,7 @@
             "ItemDetails": {
               "DisplayUnitOfMeasure": "Each",
               "Description": "Hunter Regalia 60-in New Bronze Ceiling Fan",
-              "ImageUrl": "<PATH_TO_IMAGE>",
+              "ImageUrl": "../assets/productImage.png",
               "ItemID": "100002 "
             }
           }

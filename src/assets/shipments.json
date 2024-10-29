@@ -1,20 +1,20 @@
 {
   "Shipments": {
-    "TotalNumberOfRecords": "2",
+    "TotalNumberOfRecords": "30",
     "Shipment": [
       {
         "AssignedToUserId": "abrooks",
-        "DeliveryMethod": "SHP",
-        "ExpectedShipmentDate": "27-10-2017",
-        "OrderNo": "SFS1000001",
-        "ScacAndService": "UPSNGround",
+        "DeliveryMethod": "PICK",
+        "ExpectedShipmentDate": "01-10-2023",
+        "OrderNo": "PICK1000001",
+        "ScacAndService": "",
         "ShipNode": "Mtrx_Store_1",
-        "ShipmentKey": "SFS1000001_SHPKEY",
-        "ShipmentNo": "SFS1000001SHPNO",
-        "Status": "Cancelled",
+        "ShipmentKey": "PICK1000001_SHPKEY",
+        "ShipmentNo": "PICK1000001SHPNO",
+        "Status": "Ready for Backroom Pick",
         "BillToAddress": {
-          "DayPhone": "123456789",
-          "EMailID": "Zymer@org.com",
+          "DayPhone": "1234567890",
+          "EMailID": "ben@example.com",
           "FirstName": "Ben",
           "LastName": "Zymer",
           "PersonInfoKey": "1000001"
@@ -26,19 +26,628 @@
       {
         "AssignedToUserId": "amgr",
         "DeliveryMethod": "PICK",
-        "ExpectedShipmentDate": "28-10-2017",
-        "OrderNo": "PICK1000001",
+        "ExpectedShipmentDate": "02-10-2023",
+        "OrderNo": "PICK1000002",
         "ScacAndService": "",
-        "ShipNode": "Mtrx_Store_1",
-        "ShipmentKey": "PICK1000001_SHPKEY",
-        "ShipmentNo": "PICK1000001SHPNO",
-        "Status": "Ready for Backroom Pick",
+        "ShipNode": "Mtrx_Store_2",
+        "ShipmentKey": "PICK1000002_SHPKEY",
+        "ShipmentNo": "PICK1000002SHPNO",
+        "Status": "Backroom Pick In Progress",
         "BillToAddress": {
-          "DayPhone": "1234567890",
-          "EMailID": "adoyle@org.com",
+          "DayPhone": "1234567891",
+          "EMailID": "abby@example.com",
           "FirstName": "Abby",
           "LastName": "Doyle",
-          "PersonInfoKey": "2000001"
+          "PersonInfoKey": "1000002"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "6"
+        }
+      },
+      {
+        "AssignedToUserId": "cjohnson",
+        "DeliveryMethod": "PICK",
+        "ExpectedShipmentDate": "03-10-2023",
+        "OrderNo": "PICK1000003",
+        "ScacAndService": "",
+        "ShipNode": "Mtrx_Store_3",
+        "ShipmentKey": "PICK1000003_SHPKEY",
+        "ShipmentNo": "PICK1000003SHPNO",
+        "Status": "Ready for Customer Pickup",
+        "BillToAddress": {
+          "DayPhone": "1234567892",
+          "EMailID": "chris@example.com",
+          "FirstName": "Chris",
+          "LastName": "Johnson",
+          "PersonInfoKey": "1000003"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "5"
+        }
+      },
+      {
+        "AssignedToUserId": "jjones",
+        "DeliveryMethod": "SHP",
+        "ExpectedShipmentDate": "04-10-2023",
+        "OrderNo": "SFS1000001",
+        "ScacAndService": "UPS Ground",
+        "ShipNode": "Mtrx_Store_4",
+        "ShipmentKey": "SFS1000001_SHPKEY",
+        "ShipmentNo": "SFS1000001SHPNO",
+        "Status": "Ready for Packing",
+        "BillToAddress": {
+          "DayPhone": "1234567893",
+          "EMailID": "john@example.com",
+          "FirstName": "John",
+          "LastName": "Jones",
+          "PersonInfoKey": "1000004"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "3"
+        }
+      },
+      {
+        "AssignedToUserId": "lmartin",
+        "DeliveryMethod": "SHP",
+        "ExpectedShipmentDate": "05-10-2023",
+        "OrderNo": "SFS1000002",
+        "ScacAndService": "FedEx Ground",
+        "ShipNode": "Mtrx_Store_5",
+        "ShipmentKey": "SFS1000002_SHPKEY",
+        "ShipmentNo": "SFS1000002SHPNO",
+        "Status": "Packed",
+        "BillToAddress": {
+          "DayPhone": "1234567894",
+          "EMailID": "lisa@example.com",
+          "FirstName": "Lisa",
+          "LastName": "Martin",
+          "PersonInfoKey": "1000005"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "4"
+        }
+      },
+      {
+        "AssignedToUserId": "mmartinez",
+        "DeliveryMethod": "SHP",
+        "ExpectedShipmentDate": "06-10-2023",
+        "OrderNo": "SFS1000003",
+        "ScacAndService": "USPS Priority",
+        "ShipNode": "Mtrx_Store_6",
+        "ShipmentKey": "SFS1000003_SHPKEY",
+        "ShipmentNo": "SFS1000003SHPNO",
+        "Status": "Shipped",
+        "BillToAddress": {
+          "DayPhone": "1234567895",
+          "EMailID": "maria@example.com",
+          "FirstName": "Maria",
+          "LastName": "Martinez",
+          "PersonInfoKey": "1000006"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "7"
+        }
+      },
+      {
+        "AssignedToUserId": "ppatel",
+        "DeliveryMethod": "PICK",
+        "ExpectedShipmentDate": "07-10-2023",
+        "OrderNo": "PICK1000004",
+        "ScacAndService": "",
+        "ShipNode": "Mtrx_Store_7",
+        "ShipmentKey": "PICK1000004_SHPKEY",
+        "ShipmentNo": "PICK1000004SHPNO",
+        "Status": "Picked",
+        "BillToAddress": {
+          "DayPhone": "1234567896",
+          "EMailID": "priya@example.com",
+          "FirstName": "Priya",
+          "LastName": "Patel",
+          "PersonInfoKey": "1000007"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "5"
+        }
+      },
+      {
+        "AssignedToUserId": "wwilson",
+        "DeliveryMethod": "PICK",
+        "ExpectedShipmentDate": "08-10-2023",
+        "OrderNo": "PICK1000005",
+        "ScacAndService": "",
+        "ShipNode": "Mtrx_Store_8",
+        "ShipmentKey": "PICK1000005_SHPKEY",
+        "ShipmentNo": "PICK1000005SHPNO",
+        "Status": "Ready for Backroom Pick",
+        "BillToAddress": {
+          "DayPhone": "1234567897",
+          "EMailID": "walter@example.com",
+          "FirstName": "Walter",
+          "LastName": "Wilson",
+          "PersonInfoKey": "1000008"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "6"
+        }
+      },
+      {
+        "AssignedToUserId": "xsmith",
+        "DeliveryMethod": "SHP",
+        "ExpectedShipmentDate": "09-10-2023",
+        "OrderNo": "SFS1000004",
+        "ScacAndService": "DHL Express",
+        "ShipNode": "Mtrx_Store_9",
+        "ShipmentKey": "SFS1000004_SHPKEY",
+        "ShipmentNo": "SFS1000004SHPNO",
+        "Status": "Packing In Progress",
+        "BillToAddress": {
+          "DayPhone": "1234567898",
+          "EMailID": "xavier@example.com",
+          "FirstName": "Xavier",
+          "LastName": "Smith",
+          "PersonInfoKey": "1000009"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "4"
+        }
+      },
+      {
+        "AssignedToUserId": "mgray",
+        "DeliveryMethod": "PICK",
+        "ExpectedShipmentDate": "10-10-2023",
+        "OrderNo": "PICK1000006",
+        "ScacAndService": "",
+        "ShipNode": "Mtrx_Store_10",
+        "ShipmentKey": "PICK1000006_SHPKEY",
+        "ShipmentNo": "PICK1000006SHPNO",
+        "Status": "Ready for Customer Pickup",
+        "BillToAddress": {
+          "DayPhone": "1234567899",
+          "EMailID": "mason@example.com",
+          "FirstName": "Mason",
+          "LastName": "Gray",
+          "PersonInfoKey": "1000010"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "3"
+        }
+      },
+      {
+        "AssignedToUserId": "rking",
+        "DeliveryMethod": "SHP",
+        "ExpectedShipmentDate": "11-10-2023",
+        "OrderNo": "SFS1000005",
+        "ScacAndService": "UPS Ground",
+        "ShipNode": "Mtrx_Store_11",
+        "ShipmentKey": "SFS1000005_SHPKEY",
+        "ShipmentNo": "SFS1000005SHPNO",
+        "Status": "Shipped",
+        "BillToAddress": {
+          "DayPhone": "1234567800",
+          "EMailID": "ron@example.com",
+          "FirstName": "Ron",
+          "LastName": "King",
+          "PersonInfoKey": "1000011"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "8"
+        }
+      },
+      {
+        "AssignedToUserId": "dclark",
+        "DeliveryMethod": "PICK",
+        "ExpectedShipmentDate": "12-10-2023",
+        "OrderNo": "PICK1000007",
+        "ScacAndService": "",
+        "ShipNode": "Mtrx_Store_12",
+        "ShipmentKey": "PICK1000007_SHPKEY",
+        "ShipmentNo": "PICK1000007SHPNO",
+        "Status": "Backroom Pick In Progress",
+        "BillToAddress": {
+          "DayPhone": "1234567801",
+          "EMailID": "diana@example.com",
+          "FirstName": "Diana",
+          "LastName": "Clark",
+          "PersonInfoKey": "1000012"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "5"
+        }
+      },
+      {
+        "AssignedToUserId": "awhite",
+        "DeliveryMethod": "SHP",
+        "ExpectedShipmentDate": "13-10-2023",
+        "OrderNo": "SFS1000006",
+        "ScacAndService": "FedEx 2Day",
+        "ShipNode": "Mtrx_Store_13",
+        "ShipmentKey": "SFS1000006_SHPKEY",
+        "ShipmentNo": "SFS1000006SHPNO",
+        "Status": "Packed",
+        "BillToAddress": {
+          "DayPhone": "1234567802",
+          "EMailID": "alice@example.com",
+          "FirstName": "Alice",
+          "LastName": "White",
+          "PersonInfoKey": "1000013"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "7"
+        }
+      },
+      {
+        "AssignedToUserId": "hkim",
+        "DeliveryMethod": "PICK",
+        "ExpectedShipmentDate": "14-10-2023",
+        "OrderNo": "PICK1000008",
+        "ScacAndService": "",
+        "ShipNode": "Mtrx_Store_14",
+        "ShipmentKey": "PICK1000008_SHPKEY",
+        "ShipmentNo": "PICK1000008SHPNO",
+        "Status": "Picked",
+        "BillToAddress": {
+          "DayPhone": "1234567803",
+          "EMailID": "harry@example.com",
+          "FirstName": "Harry",
+          "LastName": "Kim",
+          "PersonInfoKey": "1000014"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "6"
+        }
+      },
+      {
+        "AssignedToUserId": "slee",
+        "DeliveryMethod": "SHP",
+        "ExpectedShipmentDate": "15-10-2023",
+        "OrderNo": "SFS1000007",
+        "ScacAndService": "DHL Express",
+        "ShipNode": "Mtrx_Store_15",
+        "ShipmentKey": "SFS1000007_SHPKEY",
+        "ShipmentNo": "SFS1000007SHPNO",
+        "Status": "Shipped",
+        "BillToAddress": {
+          "DayPhone": "1234567804",
+          "EMailID": "susan@example.com",
+          "FirstName": "Susan",
+          "LastName": "Lee",
+          "PersonInfoKey": "1000015"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "8"
+        }
+      },
+      {
+        "AssignedToUserId": "bcarter",
+        "DeliveryMethod": "PICK",
+        "ExpectedShipmentDate": "16-10-2023",
+        "OrderNo": "PICK1000009",
+        "ScacAndService": "",
+        "ShipNode": "Mtrx_Store_16",
+        "ShipmentKey": "PICK1000009_SHPKEY",
+        "ShipmentNo": "PICK1000009SHPNO",
+        "Status": "Ready for Backroom Pick",
+        "BillToAddress": {
+          "DayPhone": "1234567805",
+          "EMailID": "bob@example.com",
+          "FirstName": "Bob",
+          "LastName": "Carter",
+          "PersonInfoKey": "1000016"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "3"
+        }
+      },
+      {
+        "AssignedToUserId": "dmiller",
+        "DeliveryMethod": "SHP",
+        "ExpectedShipmentDate": "17-10-2023",
+        "OrderNo": "SFS1000008",
+        "ScacAndService": "UPS Ground",
+        "ShipNode": "Mtrx_Store_17",
+        "ShipmentKey": "SFS1000008_SHPKEY",
+        "ShipmentNo": "SFS1000008SHPNO",
+        "Status": "Ready for Packing",
+        "BillToAddress": {
+          "DayPhone": "1234567806",
+          "EMailID": "david@example.com",
+          "FirstName": "David",
+          "LastName": "Miller",
+          "PersonInfoKey": "1000017"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "4"
+        }
+      },
+      {
+        "AssignedToUserId": "kroberts",
+        "DeliveryMethod": "SHP",
+        "ExpectedShipmentDate": "18-10-2023",
+        "OrderNo": "SFS1000009",
+        "ScacAndService": "FedEx 2Day",
+        "ShipNode": "Mtrx_Store_18",
+        "ShipmentKey": "SFS1000009_SHPKEY",
+        "ShipmentNo": "SFS1000009SHPNO",
+        "Status": "Packed",
+        "BillToAddress": {
+          "DayPhone": "1234567807",
+          "EMailID": "kathy@example.com",
+          "FirstName": "Kathy",
+          "LastName": "Roberts",
+          "PersonInfoKey": "1000018"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "5"
+        }
+      },
+      {
+        "AssignedToUserId": "pjohnson",
+        "DeliveryMethod": "SHP",
+        "ExpectedShipmentDate": "19-10-2023",
+        "OrderNo": "SFS1000010",
+        "ScacAndService": "DHL Express",
+        "ShipNode": "Mtrx_Store_19",
+        "ShipmentKey": "SFS1000010_SHPKEY",
+        "ShipmentNo": "SFS1000010SHPNO",
+        "Status": "Shipped",
+        "BillToAddress": {
+          "DayPhone": "1234567808",
+          "EMailID": "paul@example.com",
+          "FirstName": "Paul",
+          "LastName": "Johnson",
+          "PersonInfoKey": "1000019"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "6"
+        }
+      },
+      {
+        "AssignedToUserId": "jlee",
+        "DeliveryMethod": "PICK",
+        "ExpectedShipmentDate": "20-10-2023",
+        "OrderNo": "PICK1000010",
+        "ScacAndService": "",
+        "ShipNode": "Mtrx_Store_20",
+        "ShipmentKey": "PICK1000010_SHPKEY",
+        "ShipmentNo": "PICK1000010SHPNO",
+        "Status": "Picked",
+        "BillToAddress": {
+          "DayPhone": "1234567809",
+          "EMailID": "julia@example.com",
+          "FirstName": "Julia",
+          "LastName": "Lee",
+          "PersonInfoKey": "1000020"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "4"
+        }
+      },
+      {
+        "AssignedToUserId": "srobinson",
+        "DeliveryMethod": "SHP",
+        "ExpectedShipmentDate": "21-10-2023",
+        "OrderNo": "SFS1000011",
+        "ScacAndService": "UPS Ground",
+        "ShipNode": "Mtrx_Store_21",
+        "ShipmentKey": "SFS1000011_SHPKEY",
+        "ShipmentNo": "SFS1000011SHPNO",
+        "Status": "Ready for Packing",
+        "BillToAddress": {
+          "DayPhone": "1234567810",
+          "EMailID": "sam@example.com",
+          "FirstName": "Sam",
+          "LastName": "Robinson",
+          "PersonInfoKey": "1000021"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "3"
+        }
+      },
+      {
+        "AssignedToUserId": "tgreen",
+        "DeliveryMethod": "SHP",
+        "ExpectedShipmentDate": "22-10-2023",
+        "OrderNo": "SFS1000012",
+        "ScacAndService": "FedEx 2Day",
+        "ShipNode": "Mtrx_Store_22",
+        "ShipmentKey": "SFS1000012_SHPKEY",
+        "ShipmentNo": "SFS1000012SHPNO",
+        "Status": "Packed",
+        "BillToAddress": {
+          "DayPhone": "1234567811",
+          "EMailID": "tina@example.com",
+          "FirstName": "Tina",
+          "LastName": "Green",
+          "PersonInfoKey": "1000022"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "5"
+        }
+      },
+      {
+        "AssignedToUserId": "mwhite",
+        "DeliveryMethod": "SHP",
+        "ExpectedShipmentDate": "23-10-2023",
+        "OrderNo": "SFS1000013",
+        "ScacAndService": "DHL Express",
+        "ShipNode": "Mtrx_Store_23",
+        "ShipmentKey": "SFS1000013_SHPKEY",
+        "ShipmentNo": "SFS1000013SHPNO",
+        "Status": "Shipped",
+        "BillToAddress": {
+          "DayPhone": "1234567812",
+          "EMailID": "mike@example.com",
+          "FirstName": "Mike",
+          "LastName": "White",
+          "PersonInfoKey": "1000023"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "6"
+        }
+      },
+      {
+        "AssignedToUserId": "bjackson",
+        "DeliveryMethod": "PICK",
+        "ExpectedShipmentDate": "24-10-2023",
+        "OrderNo": "PICK1000011",
+        "ScacAndService": "",
+        "ShipNode": "Mtrx_Store_24",
+        "ShipmentKey": "PICK1000011_SHPKEY",
+        "ShipmentNo": "PICK1000011SHPNO",
+        "Status": "Ready for Backroom Pick",
+        "BillToAddress": {
+          "DayPhone": "1234567813",
+          "EMailID": "bob.jackson@example.com",
+          "FirstName": "Bob",
+          "LastName": "Jackson",
+          "PersonInfoKey": "1000024"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "3"
+        }
+      },
+      {
+        "AssignedToUserId": "jsmith",
+        "DeliveryMethod": "SHP",
+        "ExpectedShipmentDate": "25-10-2023",
+        "OrderNo": "SFS1000014",
+        "ScacAndService": "UPS Ground",
+        "ShipNode": "Mtrx_Store_25",
+        "ShipmentKey": "SFS1000014_SHPKEY",
+        "ShipmentNo": "SFS1000014SHPNO",
+        "Status": "Ready for Packing",
+        "BillToAddress": {
+          "DayPhone": "1234567814",
+          "EMailID": "john@example.com",
+          "FirstName": "John",
+          "LastName": "Smith",
+          "PersonInfoKey": "1000025"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "4"
+        }
+      },
+      {
+        "AssignedToUserId": "cgarcia",
+        "DeliveryMethod": "SHP",
+        "ExpectedShipmentDate": "26-10-2023",
+        "OrderNo": "SFS1000015",
+        "ScacAndService": "FedEx 2Day",
+        "ShipNode": "Mtrx_Store_26",
+        "ShipmentKey": "SFS1000015_SHPKEY",
+        "ShipmentNo": "SFS1000015SHPNO",
+        "Status": "Packed",
+        "BillToAddress": {
+          "DayPhone": "1234567815",
+          "EMailID": "carla@example.com",
+          "FirstName": "Carla",
+          "LastName": "Garcia",
+          "PersonInfoKey": "1000026"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "5"
+        }
+      },
+      {
+        "AssignedToUserId": "mdavis",
+        "DeliveryMethod": "SHP",
+        "ExpectedShipmentDate": "27-10-2023",
+        "OrderNo": "SFS1000016",
+        "ScacAndService": "DHL Express",
+        "ShipNode": "Mtrx_Store_27",
+        "ShipmentKey": "SFS1000016_SHPKEY",
+        "ShipmentNo": "SFS1000016SHPNO",
+        "Status": "Shipped",
+        "BillToAddress": {
+          "DayPhone": "1234567816",
+          "EMailID": "maria@example.com",
+          "FirstName": "Maria",
+          "LastName": "Davis",
+          "PersonInfoKey": "1000027"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "6"
+        }
+      },
+      {
+        "AssignedToUserId": "jroberts",
+        "DeliveryMethod": "PICK",
+        "ExpectedShipmentDate": "28-10-2023",
+        "OrderNo": "PICK1000012",
+        "ScacAndService": "",
+        "ShipNode": "Mtrx_Store_28",
+        "ShipmentKey": "PICK1000012_SHPKEY",
+        "ShipmentNo": "PICK1000012SHPNO",
+        "Status": "Picked",
+        "BillToAddress": {
+          "DayPhone": "1234567817",
+          "EMailID": "jake@example.com",
+          "FirstName": "Jake",
+          "LastName": "Roberts",
+          "PersonInfoKey": "1000028"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "4"
+        }
+      },
+      {
+        "AssignedToUserId": "lmoore",
+        "DeliveryMethod": "SHP",
+        "ExpectedShipmentDate": "29-10-2023",
+        "OrderNo": "SFS1000017",
+        "ScacAndService": "UPS Ground",
+        "ShipNode": "Mtrx_Store_29",
+        "ShipmentKey": "SFS1000017_SHPKEY",
+        "ShipmentNo": "SFS1000017SHPNO",
+        "Status": "Ready for Packing",
+        "BillToAddress": {
+          "DayPhone": "1234567818",
+          "EMailID": "laura@example.com",
+          "FirstName": "Laura",
+          "LastName": "Moore",
+          "PersonInfoKey": "1000029"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "3"
+        }
+      },
+      {
+        "AssignedToUserId": "tjohnson",
+        "DeliveryMethod": "SHP",
+        "ExpectedShipmentDate": "30-10-2023",
+        "OrderNo": "SFS1000018",
+        "ScacAndService": "FedEx 2Day",
+        "ShipNode": "Mtrx_Store_30",
+        "ShipmentKey": "SFS1000018_SHPKEY",
+        "ShipmentNo": "SFS1000018SHPNO",
+        "Status": "Packed",
+        "BillToAddress": {
+          "DayPhone": "1234567819",
+          "EMailID": "tyler@example.com",
+          "FirstName": "Tyler",
+          "LastName": "Johnson",
+          "PersonInfoKey": "1000030"
+        },
+        "ShipmentLines": {
+          "TotalNumberOfRecords": "5"
+        }
+      },
+      {
+        "AssignedToUserId": "jthomas",
+        "DeliveryMethod": "SHP",
+        "ExpectedShipmentDate": "31-10-2023",
+        "OrderNo": "SFS1000019",
+        "ScacAndService": "DHL Express",
+        "ShipNode": "Mtrx_Store_31",
+        "ShipmentKey": "SFS1000019_SHPKEY",
+        "ShipmentNo": "SFS1000019SHPNO",
+        "Status": "Shipped",
+        "BillToAddress": {
+          "DayPhone": "1234567820",
+          "EMailID": "jason@example.com",
+          "FirstName": "Jason",
+          "LastName": "Thomas",
+          "PersonInfoKey": "1000031"
         },
         "ShipmentLines": {
           "TotalNumberOfRecords": "6"
