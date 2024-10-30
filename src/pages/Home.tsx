@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { InputState } from "../shared/types";
 import { inputBoxes } from "../utils/constants";
 import CustomButton from "../shared/components/CustomButton";
-import COLORS from "../utils/colors";
 
 const Home = () => {
   const { t } = useTranslation();
@@ -38,12 +37,12 @@ const Home = () => {
   return (
     <div className=" flex flex-col justify-center items-center">
       <h1
-        className={`text-2xl mb-4 font-semibold text-[${COLORS.grayHeading}]`}
+        className={`text-2xl mb-4 font-semibold text-[#626262]`}
       >
         {t("home.LABEL_WhatDoYouWantToDO")}
       </h1>
-      <div className={`bg-[${COLORS.white}] w-[90%] md:w-[40%] flex flex-col justify-center items-center px-2 py-4 border border-[${COLORS.cardBorderGray}]`}>
-        <h1 className={`text-2xl font-semibold text-[${COLORS.grayHeading}]`}>
+      <div className={`bg-[#fff] w-[90%] md:w-[40%] flex flex-col justify-center items-center px-2 py-4 border border-[#D8D8DA]`}>
+        <h1 className={`text-2xl font-semibold text-[#626262]`}>
           Shipment Search
         </h1>
         <div className="flex flex-col w-full mt-10">
@@ -68,14 +67,14 @@ const Home = () => {
           <CustomButton
             text="Reset"
             onClick={() => resetFields()}
-            textColor={COLORS.btnBgColor}
-            borderColor={COLORS.btnBgColor}
+            textColor={"#3F78BF"}
+            borderColor={"#3F78BF"}
           />
           <CustomButton
             text="Search"
             onClick={() => handleSearch()}
-            bgColor={COLORS.btnBgColor}
-            textColor={COLORS.white}
+            bgColor={"#3F78BF"}
+            textColor={"#fff"}
           />
         </div>
       </div>

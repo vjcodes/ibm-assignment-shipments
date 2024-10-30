@@ -19,7 +19,7 @@ const CustomButton = ({
     <button
       className={`border px-6 py-2 bg-[${bgColor}] border-[${borderColor}] text-[${textColor}] mr-2 font-semibold ${className}`}
       onClick={() => onClick()}
-      style={{ color: textColor }}
+      style={{ color: textColor, background: bgColor, borderColor: borderColor }}
     >
       {text}
     </button>

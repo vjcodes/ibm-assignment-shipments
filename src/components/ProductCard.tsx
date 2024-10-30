@@ -1,5 +1,4 @@
 import { ProductType } from "../shared/types";
-import COLORS from "../utils/colors";
 
 const ProductCard = ({ details }: { details: ProductType }) => {
   return (
@@ -7,7 +6,7 @@ const ProductCard = ({ details }: { details: ProductType }) => {
       <div className="w-16 h-16 bg-gray-300 mr-2" />
 
       <div>
-        <h1 className={`text-[${COLORS.arrowGreen}] font-semibold`}>
+        <h1 className={`text-[#3d8ca5] font-semibold`}>
           {details?.OrderLine?.ItemDetails?.Description}
         </h1>
         <h1>{`Product ID: ${details?.OrderLine?.ItemDetails?.ItemID}`}</h1>

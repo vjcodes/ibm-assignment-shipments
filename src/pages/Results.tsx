@@ -10,7 +10,6 @@ import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import KeyboardArrowLeftOutlinedIcon from "@mui/icons-material/KeyboardArrowLeftOutlined";
 import { filterCheckboxes, refineMapper } from "../utils/constants";
 import { RefineMapper, RefineValues } from "../shared/interfaces";
-import COLORS from "../utils/colors";
 import CloseIcon from "@mui/icons-material/Close";
 
 const Results = () => {
@@ -172,18 +171,18 @@ const Results = () => {
 
   return (
     <div>
-      <div className={`bg-[${COLORS.white}] m-2 border border-[${COLORS.cardBorderGray}]`}>
+      <div className={`bg-[#fff] m-2 border border-[#D8D8DA]`}>
         <div className="flex justify-between items-center p-2 border-b mb-2">
           <div className="flex">
             <button
-              className={`mr-2 text-[${COLORS.arrowGreen}] font-bold`}
+              className={`mr-2 text-[#3d8ca5] font-bold`}
               onClick={() => navigate(-1)}
             >
               <KeyboardArrowLeftOutlinedIcon />
             </button>
             <Divider type="vertical" />
             <h1
-              className={`ml-2 font-semibold text-xl text-[${COLORS.grayHeading}]`}
+              className={`ml-2 font-semibold text-xl text-[#626262]`}
             >
               Shipment Search Results
             </h1>
@@ -192,15 +191,15 @@ const Results = () => {
           <div>
             <CustomButton
               text="Close"
-              borderColor={COLORS.btnBgColor}
-              textColor={COLORS.btnBgColor}
+              borderColor={"#3F78BF"}
+              textColor={"#3F78BF"}
               onClick={() => navigate("/")}
             />
           </div>
         </div>
 
         <div className="flex justify-between p-2 mb-2">
-          <div className={`text-[${COLORS.grayHeading}] font-semibold`}>
+          <div className={`text-[#626262] font-semibold`}>
             {t("results.RESULTS_Found", { count: paginatedShipments.length })}
           </div>
           <div className="relative">
@@ -214,7 +213,7 @@ const Results = () => {
                 >
                   <div className="flex justify-between">
                     <h1
-                      className={`mb-2 font-semibold text-[${COLORS.grayHeading}]`}
+                      className={`mb-2 font-semibold text-[#626262]`}
                     >
                       Refine
                     </h1>
@@ -227,9 +226,9 @@ const Results = () => {
 
                   <Divider type="horizontal" />
 
-                  <div className={`bg-[${COLORS.accordionGray}] p-2 mb-2`}>
+                  <div className={`bg-[#E8E8E8] p-2 mb-2`}>
                     <h1
-                      className={`font-semibold text-[${COLORS.grayHeading}]`}
+                      className={`font-semibold text-[#626262]`}
                     >
                       Status
                     </h1>
@@ -261,14 +260,14 @@ const Results = () => {
                     <CustomButton
                       text="Reset"
                       onClick={() => resetFields()}
-                      textColor={COLORS.btnBgColor}
-                      borderColor={COLORS.btnBgColor}
+                      textColor={"#3F78BF"}
+                      borderColor={"#3F78BF"}
                     />
                     <CustomButton
                       text="Apply"
                       onClick={() => handleApplyFilters()}
-                      bgColor={COLORS.btnBgColor}
-                      textColor={COLORS.white}
+                      bgColor={"#3F78BF"}
+                      textColor={"#fff"}
                     />
                   </div>
                 </div>
@@ -276,7 +275,7 @@ const Results = () => {
             )}
             <button className="flex items-center" onClick={togglePopover}>
               <FilterAltOutlinedIcon
-                className={`text-[${COLORS.arrowGreen}] relative`}
+                className={`text-[#3d8ca5] relative`}
               />
               <input
                 type="checkbox"
