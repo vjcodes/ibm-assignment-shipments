@@ -3,6 +3,8 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { InputState } from "../shared/types";
 import { inputBoxes } from "../utils/constants";
+import CustomButton from "../shared/components/CustomButton";
+import COLORS from "../utils/colors";
 
 const Home = () => {
   const { t } = useTranslation();
@@ -35,11 +37,13 @@ const Home = () => {
 
   return (
     <div className=" flex flex-col justify-center items-center">
-      <h1 className="text-2xl mb-4 font-semibold text-[#626262]">
+      <h1
+        className={`text-2xl mb-4 font-semibold text-[${COLORS.grayHeading}]`}
+      >
         {t("home.LABEL_WhatDoYouWantToDO")}
       </h1>
-      <div className="bg-white w-[90%] md:w-[40%] flex flex-col justify-center items-center px-2 py-4 border border-[#D8D8DA]">
-        <h1 className="text-2xl font-semibold text-[#626262]">
+      <div className={`bg-[${COLORS.white}] w-[90%] md:w-[40%] flex flex-col justify-center items-center px-2 py-4 border border-[${COLORS.cardBorderGray}]`}>
+        <h1 className={`text-2xl font-semibold text-[${COLORS.grayHeading}]`}>
           Shipment Search
         </h1>
         <div className="flex flex-col w-full mt-10">
@@ -61,18 +65,18 @@ const Home = () => {
         </div>
 
         <div className="w-full flex justify-end mb-20">
-          <button
-            className="border px-6 py-2 border-[#3F78BF] text-[#3F78BF] mr-2 font-semibold"
+          <CustomButton
+            text="Reset"
             onClick={() => resetFields()}
-          >
-            Reset
-          </button>
-          <button
-            className="border px-6 py-2 bg-[#3F78BF] text-white font-semibold"
+            textColor={COLORS.btnBgColor}
+            borderColor={COLORS.btnBgColor}
+          />
+          <CustomButton
+            text="Search"
             onClick={() => handleSearch()}
-          >
-            Search
-          </button>
+            bgColor={COLORS.btnBgColor}
+            textColor={COLORS.white}
+          />
         </div>
       </div>
     </div>

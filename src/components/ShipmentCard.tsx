@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Shipment } from "../shared/types";
+import COLORS from "../utils/colors";
 
 const ShipmentCard = ({
   details,
@@ -15,20 +16,20 @@ const ShipmentCard = ({
     <div
       className={`flex flex-wrap border-b-[1px] mx-2 px-10 `}
       style={{
-        backgroundColor: cardSelected === details?.ShipmentNo ? "#F8F8FA" : "",
+        backgroundColor: cardSelected === details?.ShipmentNo ? COLORS.highlightGray : "",
       }}
       onClick={() => setCardSelected(details?.ShipmentNo)}
     >
       {/* 1st column */}
       <div className="flex flex-col items-start p-2 mr-40">
-        <h1>{details?.OrderNo}</h1>
+        <h1 className={`text-[${COLORS.grayHeading}] font-semibold`}>{details?.OrderNo}</h1>
         <h1>{`${details?.ShipmentLines?.TotalNumberOfRecords} products`}</h1>
         <h1>{`Carrier: ${details?.ScacAndService}`}</h1>
         <h1>
           Shipment #{" "}
           <span
             onClick={() => navigate("/details", { state: details })}
-            className="text-[#4797a1] font-semibold cursor-pointer"
+            className={`text-[${COLORS.arrowGreen}] font-semibold cursor-pointer`}
           >
             {details?.ShipmentNo}
           </span>
@@ -37,7 +38,7 @@ const ShipmentCard = ({
 
       {/* 2nd Column */}
       <div className="flex flex-col items-start p-2 mr-40">
-        <h1 className="text-[#9760ae]">{details?.Status}</h1>
+        <h1 className={`text-[${COLORS.shipmentPurple}]`}>{details?.Status}</h1>
         <h1>{`Assigned to: ${details?.AssignedToUserId}`}</h1>
         <h1>{`Expected pickup date: ${details?.ExpectedShipmentDate}`}</h1>
       </div>

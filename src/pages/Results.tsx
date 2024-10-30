@@ -10,6 +10,8 @@ import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 import KeyboardArrowLeftOutlinedIcon from "@mui/icons-material/KeyboardArrowLeftOutlined";
 import { filterCheckboxes, refineMapper } from "../utils/constants";
 import { RefineMapper, RefineValues } from "../shared/interfaces";
+import COLORS from "../utils/colors";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Results = () => {
   const navigate = useNavigate();
@@ -36,7 +38,9 @@ const Results = () => {
     cancelled: false,
   });
 
-  const [shipments, setShipments] = useState(shipmentsData?.Shipments?.Shipment);
+  const [shipments, setShipments] = useState(
+    shipmentsData?.Shipments?.Shipment
+  );
   const [realData, setRealData] = useState(shipmentsData?.Shipments?.Shipment);
 
   const isBlank = (value: string) => {
@@ -68,8 +72,7 @@ const Results = () => {
       ans = true;
     }
     if (
-      filterValues?.lastName ===
-      shipment?.BillToAddress?.LastName.toLowerCase()
+      filterValues?.lastName === shipment?.BillToAddress?.LastName.toLowerCase()
     ) {
       ans = true;
     }
@@ -102,7 +105,10 @@ const Results = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && paginatedShipments.length < realData.length) {
+      if (
+        entries[0].isIntersecting &&
+        paginatedShipments.length < realData.length
+      ) {
         setCurrentPage((prevPage) => prevPage + 1);
       }
     });
@@ -141,8 +147,8 @@ const Results = () => {
   const handleApplyFilters = () => {
     const filterValueArray: string[] = [];
     if (refineValues.shippedPicked) {
-        filterValueArray.push(refineMapper.picked);
-        filterValueArray.push(refineMapper.shipped);
+      filterValueArray.push(refineMapper.picked);
+      filterValueArray.push(refineMapper.shipped);
     }
     Object.keys(refineValues).forEach((key: string) => {
       if (refineValues[key as keyof RefineValues]) {
@@ -166,17 +172,19 @@ const Results = () => {
 
   return (
     <div>
-      <div className="bg-white m-2 border border-[#1d1d22]">
+      <div className={`bg-[${COLORS.white}] m-2 border border-[${COLORS.cardBorderGray}]`}>
         <div className="flex justify-between items-center p-2 border-b mb-2">
           <div className="flex">
             <button
-              className="mr-2 text-[#3d8ca5] font-bold"
+              className={`mr-2 text-[${COLORS.arrowGreen}] font-bold`}
               onClick={() => navigate(-1)}
             >
               <KeyboardArrowLeftOutlinedIcon />
             </button>
             <Divider type="vertical" />
-            <h1 className="ml-2 font-semibold text-xl">
+            <h1
+              className={`ml-2 font-semibold text-xl text-[${COLORS.grayHeading}]`}
+            >
               Shipment Search Results
             </h1>
           </div>
@@ -184,15 +192,17 @@ const Results = () => {
           <div>
             <CustomButton
               text="Close"
-              borderColor="#3F78BF"
-              textColor="#3F78BF"
+              borderColor={COLORS.btnBgColor}
+              textColor={COLORS.btnBgColor}
               onClick={() => navigate("/")}
             />
           </div>
         </div>
 
         <div className="flex justify-between p-2 mb-2">
-          <div>{t("results.RESULTS_Found", { count: paginatedShipments.length })}</div>
+          <div className={`text-[${COLORS.grayHeading}] font-semibold`}>
+            {t("results.RESULTS_Found", { count: paginatedShipments.length })}
+          </div>
           <div className="relative">
             {isOpen && (
               <div className="absolute right-[90%] z-10 mt-2 w-[20rem] rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
@@ -202,24 +212,43 @@ const Results = () => {
                   aria-orientation="vertical"
                   aria-labelledby="options-menu"
                 >
-                  <h1 className="mb-2">Refine</h1>
+                  <div className="flex justify-between">
+                    <h1
+                      className={`mb-2 font-semibold text-[${COLORS.grayHeading}]`}
+                    >
+                      Refine
+                    </h1>
+
+                    <CloseIcon
+                      className="cursor-pointer"
+                      onClick={() => setIsOpen(false)}
+                    />
+                  </div>
+
                   <Divider type="horizontal" />
 
-                  <div className="bg-[#E8E8E8] p-2">
-                    <h1>Status</h1>
+                  <div className={`bg-[${COLORS.accordionGray}] p-2 mb-2`}>
+                    <h1
+                      className={`font-semibold text-[${COLORS.grayHeading}]`}
+                    >
+                      Status
+                    </h1>
 
                     {filterCheckboxes.map((checkbox) => (
                       <div key={checkbox.id} className="flex items-center">
                         <input
                           type="checkbox"
-                          checked={refineValues[checkbox.id as keyof RefineValues]}
+                          checked={
+                            refineValues[checkbox.id as keyof RefineValues]
+                          }
                           onChange={() =>
                             setRefineValues((prev) => ({
                               ...prev,
-                              [checkbox.id]: !prev[checkbox.id as keyof RefineValues],
+                              [checkbox.id]:
+                                !prev[checkbox.id as keyof RefineValues],
                             }))
                           }
-                          className="mr-2"
+                          className={`form-checkbox h-5 w-5 mr-2`}
                         />
                         {checkbox.label}
                       </div>
@@ -229,24 +258,26 @@ const Results = () => {
                   <Divider type="horizontal" />
 
                   <div className="w-full flex justify-end mt-4">
-                    <button
-                      className="border px-6 py-2 border-[#3F78BF] text-[#3F78BF] mr-2 font-semibold"
-                      onClick={resetFields}
-                    >
-                      Reset
-                    </button>
-                    <button
-                      className="border px-6 py-2 bg-[#3F78BF] text-white font-semibold"
-                      onClick={handleApplyFilters}
-                    >
-                      Apply
-                    </button>
+                    <CustomButton
+                      text="Reset"
+                      onClick={() => resetFields()}
+                      textColor={COLORS.btnBgColor}
+                      borderColor={COLORS.btnBgColor}
+                    />
+                    <CustomButton
+                      text="Apply"
+                      onClick={() => handleApplyFilters()}
+                      bgColor={COLORS.btnBgColor}
+                      textColor={COLORS.white}
+                    />
                   </div>
                 </div>
               </div>
             )}
             <button className="flex items-center" onClick={togglePopover}>
-              <FilterAltOutlinedIcon className="text-[#248b84] relative" />
+              <FilterAltOutlinedIcon
+                className={`text-[${COLORS.arrowGreen}] relative`}
+              />
               <input
                 type="checkbox"
                 className="h-3 absolute bottom-0 right-0 left-3"
